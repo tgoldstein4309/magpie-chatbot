@@ -3,4 +3,3 @@
  * Description: 20 questions
  */
 public class TrevorBot {
-
