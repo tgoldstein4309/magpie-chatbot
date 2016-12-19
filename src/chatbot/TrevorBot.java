@@ -8,13 +8,13 @@ package chatbot;
 
 public class TrevorBot
 {
-	private String TruthQuestions()
+	public String TruthQuestions()
 	{
-		final int numOfQs = 6;
+		final int numOfQs = 6; 
 		double r = Math.random();
 		int whichQ = (int)(r * numOfQs);
 		String truth = "";
-		
+		//randomized truth questions
 		if (whichQ == 0)
 		{
 			truth = "How many girlfriends/boyfriends have you had?";
@@ -47,7 +47,7 @@ public class TrevorBot
 		double r = Math.random();
 		int whichD = (int)(r * numOfDs);
 		String dare = "";
-		
+		//randomized dares
 		if (whichD == 0)
 		{
 			dare = "Tell whoever is next to you you love them.";
@@ -70,6 +70,12 @@ public class TrevorBot
 		}
 		else if (whichD == 5)
 		{
+			dare = "Bake a bunch of red velvet cupcakes for your friends.";
+		}
+		else if (whichD == 6)
+		{
+			dare = "Sing someone a ballad of Weeknd songs to make your crush swoon for you.";
 		}
 		return dare;
+	}
 }
