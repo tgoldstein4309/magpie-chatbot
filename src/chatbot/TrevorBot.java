@@ -41,7 +41,7 @@ public class TrevorBot
 		}
 		return truth;
 	}
-	private String Dares()
+	public String Dares()
 	{
 		final int numOfDs = 6;
 		double r = Math.random();
