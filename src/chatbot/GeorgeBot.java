@@ -17,7 +17,10 @@ public class GeorgeBot
 	{
 		return "Hello, I am here to help you with your love life";
 	}
-	
+	public boolean wordIn(String statement, String search)
+	{
+		return statement.indexOf(search) >= 0 && statement.indexOf(search) == search.length();
+	}
 	/**
 	 * Gives a response to user statement 
 	 * @param statement 
@@ -27,6 +30,12 @@ public class GeorgeBot
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if
+		if (wordIn(statement, "love")
+				|| (wordIn(statement, "like")))
+		{
+			response = "What do you like about that person?";
+		}
+	
+		return response;
 	}
 }
