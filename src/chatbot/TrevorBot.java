@@ -8,7 +8,29 @@ package chatbot;
 
 public class TrevorBot
 {
-	public String TruthQuestions()
+	public String getGreeting()
+	{
+		return "Welcome to Truth or Dare. Which do you want?: ";
+	}
+	public String getResponse(String statement)
+	{
+		String response = "";
+		if (statement.indexOf("truth") >= 0)
+		{
+			response = getTruthQuestions();
+		}
+		else if (statement.indexOf("dare") >= 0)
+		{
+			response = getDares();
+		}
+		else 
+		{
+			response = "You didn't answer my question :(";
+		}
+		return response;
+		
+	}
+	public String getTruthQuestions()
 	{
 		final int numOfQs = 6; 
 		double r = Math.random();
@@ -41,7 +63,7 @@ public class TrevorBot
 		}
 		return truth;
 	}
-	public String Dares()
+	public String getDares()
 	{
 		final int numOfDs = 6;
 		double r = Math.random();
