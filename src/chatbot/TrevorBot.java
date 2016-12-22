@@ -10,7 +10,7 @@ public class TrevorBot
 {
 	public String getGreeting()
 	{
-		return "Welcome to Truth or Dare. Which do you want?: ";
+		return "Welcome to Truth or Dare: ";
 	}
 	public String getResponse(String statement)
 	{

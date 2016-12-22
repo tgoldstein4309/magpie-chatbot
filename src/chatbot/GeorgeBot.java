@@ -19,7 +19,7 @@ public class GeorgeBot
 	}
 	public boolean wordIn(String statement, String search)
 	{
-		return statement.indexOf(search) >= 0 && statement.indexOf(search) == search.length();
+		return statement.contains(search);
 	}
 	/**
 	 * Gives a response to user statement 

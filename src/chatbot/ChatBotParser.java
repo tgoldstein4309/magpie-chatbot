@@ -29,7 +29,7 @@ public class ChatBotParser {
                     "help - lists commands\n" +
                     "truth/dare - play truth or dare game\n" +
                     "love/guru - talk to the love guru\n" +
-                    "search - search the internet\n" +
+                    "search - search thbhe internet\n" +
                     "bye - abandon the chatbot conversation\n";
     }
 
@@ -58,14 +58,22 @@ public class ChatBotParser {
             case "help" : helpCommands(); break;
             case "truth" : trev.truth();
             case "dare" : {
-                trev.dares();
-                response = "I hope the game was fun!";
+            	System.out.println(trev.getGreeting());
+            	String answer = in.nextLine();
+            	System.out.println(trev.getResponse(resp[0]));
+            	in.nextLine();
+                response = "hey thats pretty good";
             } break;
             case "search" : response = zak.google(response); break;
             case "love" :
             case "guru" : {
-                george.getGreeting();
-                response = "May the love guru enlighten you further";
+                System.out.println(george.getGreeting() + "\n");
+                System.out.println(george.randomQuestions());
+                response = in.nextLine();
+                String answer = george.getResponse(response);
+                System.out.println(answer);
+                in.nextLine();
+                response = "May karma be with you";
             } break;
             case "repeat" : response = history.get(history.size() - 2); break;
             default: {
@@ -80,6 +88,7 @@ public class ChatBotParser {
             if (positiveResponse(s)) emotion++;
             if (negativeResponse(s)) emotion--;
         }
+        
         int range = (int) (Math.random() * 3);
         if (emotion == 0) {
             switch (range) {
