@@ -17,11 +17,11 @@ public class TrevorBot
 		String response = "";
 		if (statement.indexOf("truth") >= 0)
 		{
-			response = getTruthQuestions();
+			response = truth();
 		}
 		else if (statement.indexOf("dare") >= 0)
 		{
-			response = getDares();
+			response = dares();
 		}
 		else 
 		{
@@ -30,7 +30,7 @@ public class TrevorBot
 		return response;
 		
 	}
-	public String getTruthQuestions()
+	public String truth()
 	{
 		final int numOfQs = 6; 
 		double r = Math.random();
@@ -63,7 +63,7 @@ public class TrevorBot
 		}
 		return truth;
 	}
-	public String getDares()
+	public String dares()
 	{
 		final int numOfDs = 6;
 		double r = Math.random();
