@@ -71,9 +71,7 @@ public class ChatBotParser {
                 System.out.println(george.getGreeting() + "\n");
                 System.out.println(george.randomQuestions());
                 String greetResponse = in.nextLine().trim().toLowerCase();
-                String answer = george.getResponse(greetResponse);
-                System.out.println(answer);
-                answer = response.getRandomResponse();
+                answer = george.getResponse(greetResponse);
             } break;
             case "repeat" : answer = history.get(history.size() - 2); break;
             default: {
@@ -88,7 +86,6 @@ public class ChatBotParser {
             if (this.response.isPositive(response)) emotion++;
             if (this.response.isNegative(response)) emotion--;
         }
-        System.out.println(emotion);
 
         if (emotion == 0) {
             return this.response.getRandomResponse();

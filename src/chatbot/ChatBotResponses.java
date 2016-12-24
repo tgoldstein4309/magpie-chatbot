@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * Created by Zakaria Elkatani on 12/23/16.
- * Description:
+ * Description: File I/O
  */
 public class ChatBotResponses {
     private final String DIR = "src/chatbot/responses/";

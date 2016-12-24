@@ -15,7 +15,7 @@ public class GeorgeBot
 	 */
 	public String getGreeting()
 	{
-		return "Hello, I am here to help you with your love life";
+		return "---Love Guru---\nHello, I am here to help you with your love life";
 	}
 	public boolean wordIn(String statement, String search)
 	{
