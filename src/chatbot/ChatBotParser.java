@@ -42,7 +42,7 @@ public class ChatBotParser {
                     "help - lists commands\n" +
                     "truth/dare - play truth or dare game\n" +
                     "love/guru - talk to the love guru\n" +
-                    "search - search thbhe internet\n" +
+                    "search - search the internet\n" +
                     "bye - abandon the chatbot conversation\n";
     }
 
@@ -87,7 +87,7 @@ public class ChatBotParser {
             case "repeat" : answer = history.get(history.size() - 2); break;
             // RANDOM RESPONSE
             default: {
-                answer = emotionalResponse(answer);
+                answer = emotionalResponse(String.join("", resp));
                 break;
             }
         }
@@ -100,12 +100,13 @@ public class ChatBotParser {
             if (this.response.isNegative(response)) emotion--;
         }
 
-        if (emotion == 0) {
-            return this.response.getRandomResponse();
-        } else if (emotion > 0) {
+        // feelings
+        if (emotion > 5) {
             return this.response.getPositiveResponse();
-        } else {
+        } else if (emotion < -5) {
             return this.response.getNegativeResponse();
+        } else {
+            return this.response.getRandomResponse();
         }
     }
 
