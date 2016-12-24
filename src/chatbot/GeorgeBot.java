@@ -29,7 +29,7 @@ public class GeorgeBot
 	 */
 	public String getResponse(String statement)
 	{
-		String response = "";
+		String response = "These are just the intricacies of day to day life!";
 		if (wordIn(statement, "love")
 				|| (wordIn(statement, "like")))
 		{

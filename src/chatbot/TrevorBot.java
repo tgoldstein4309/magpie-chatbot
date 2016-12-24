@@ -10,26 +10,9 @@ public class TrevorBot
 {
 	public String getGreeting()
 	{
-		return "Welcome to Truth or Dare: ";
+		return "Welcome to Truth or Dare\n";
 	}
-	public String getResponse(String statement)
-	{
-		String response = "";
-		if (statement.indexOf("truth") >= 0)
-		{
-			response = truth();
-		}
-		else if (statement.indexOf("dare") >= 0)
-		{
-			response = dares();
-		}
-		else 
-		{
-			response = "You didn't answer my question :(";
-		}
-		return response;
-		
-	}
+
 	public String truth()
 	{
 		final int numOfQs = 6; 
@@ -63,6 +46,7 @@ public class TrevorBot
 		}
 		return truth;
 	}
+
 	public String dares()
 	{
 		final int numOfDs = 6;
