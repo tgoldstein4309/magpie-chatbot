@@ -8,12 +8,12 @@ package chatbot;
 
 public class TrevorBot
 {
-	public String getGreeting()
-	{
+	public String getGreeting() // introductionary statement 
+	{							// chatbot parser has the other parts of the bot
 		return "---Welcome to Truth or Dare---\n";
 	}
 
-	public String truth()
+	public String truth() //the set of truth questions
 	{
 		final int numOfQs = 6; 
 		double r = Math.random();
@@ -47,7 +47,7 @@ public class TrevorBot
 		return truth;
 	}
 
-	public String dares()
+	public String dares() //the set of dare questions
 	{
 		final int numOfDs = 6;
 		double r = Math.random();
