@@ -3,6 +3,7 @@ package chatbot;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -71,7 +72,9 @@ public class ChatBotParser {
                 answer = "\n" + response.getRandomResponse();
             } break;
             // SEARCHING
-            case "search": answer = zak.google(answer); break;
+            case "search": {
+                answer = zak.google(Arrays.copyOfRange(resp, 1, resp.length));
+            } break;
             // LOVE GURU
             case "love" :
             case "guru" : {
