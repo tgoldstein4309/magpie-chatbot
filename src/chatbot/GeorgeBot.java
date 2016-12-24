@@ -17,10 +17,18 @@ public class GeorgeBot
 	{
 		return "---Love Guru---\nHello, I am here to help you with your love life";
 	}
+
+    /**
+     *
+     * @param statement
+     * @param search
+     * @return whether search inside statement
+     */
 	public boolean wordIn(String statement, String search)
 	{
 		return statement.contains(search);
 	}
+
 	/**
 	 * Gives a response to user statement 
 	 * @param statement 
@@ -113,6 +121,7 @@ public class GeorgeBot
 		}
 		return response;
 	}
+
 	public String randomQuestions()
 	{
 		final int NUM_OF_QUESTIONS = 5;

@@ -9,21 +9,21 @@ package chatbot;
 import java.util.Scanner;
 
 public class ChatBotRunner {
-    private ChatBotParser parser;
+    private ChatBotParser parser; // cli I/O
     private Scanner in;
     private String userInput;
     
     public static void main(String[] args)
     {
         ChatBotRunner chat = new ChatBotRunner();
-        chat.run();
+        chat.run(); // runner
     }
 
     // constructor
     public ChatBotRunner() {
         in = new Scanner(System.in);
         parser = new ChatBotParser(in);
-        userInput = "";
+        userInput = ""; // nothing input
     }
 
     // cleans up string input
@@ -43,8 +43,8 @@ public class ChatBotRunner {
     	while (!simplify(userInput).equals("bye")) {
             userInput = simplify(in.nextLine());
             parser.input(userInput);
-            parser.respond();
+            parser.respond(); // all logic is on parser
         }
-        parser.askForHistory();
+        parser.askForHistory(); // echos back history if yes
     }
 }

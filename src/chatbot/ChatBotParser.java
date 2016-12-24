@@ -16,14 +16,15 @@ public class ChatBotParser {
     private GeorgeBot george = new GeorgeBot();
     private ZakBot zak = new ZakBot();
     private Scanner in;
-    private List<String> history = new ArrayList<String>();
+    private List<String> history = new ArrayList<>();
     private String answer = "";
-    private String prevAnswer;
 
     private int emotion = 0;
 
     public ChatBotParser(Scanner in) {
         this.in = in;
+
+        // try to import file i/o and read
         try {
             response = new ChatBotResponses();
             response.readFiles();
@@ -34,6 +35,7 @@ public class ChatBotParser {
         }
     }
 
+    // commands list
     private void helpCommands() {
         answer =  "Commands:\n" +
                     "help - lists commands\n" +
@@ -48,14 +50,17 @@ public class ChatBotParser {
             answer = response.getRandomResponse();
             return;
         }
-        prevAnswer = str;
 
         history.add(str);
+
+        // split first response
         String[] resp = str.split("\\s+");
 
+        // if is command, do corresponding action
         switch (resp[0]) {
             case "bye" : answer = ""; break;
             case "help" : helpCommands(); break;
+            // TRUTH OR DARE
             case "truth" :
             case "dare" : {
             	System.out.println(trev.getGreeting());
@@ -65,7 +70,9 @@ public class ChatBotParser {
                 in.nextLine();
                 answer = "\n" + response.getRandomResponse();
             } break;
-            case "search" : answer = zak.google(answer); break;
+            // SEARCHING
+            case "search": answer = zak.google(answer); break;
+            // LOVE GURU
             case "love" :
             case "guru" : {
                 System.out.println(george.getGreeting() + "\n");
@@ -73,7 +80,9 @@ public class ChatBotParser {
                 String greetResponse = in.nextLine().trim().toLowerCase();
                 answer = george.getResponse(greetResponse);
             } break;
+            // HISTORY
             case "repeat" : answer = history.get(history.size() - 2); break;
+            // RANDOM RESPONSE
             default: {
                 answer = emotionalResponse(answer);
                 break;
@@ -82,6 +91,7 @@ public class ChatBotParser {
     }
 
     public String emotionalResponse(String response) {
+        // read user input and change feelins to correspond
         for (String s: response.split("\\s+")) {
             if (this.response.isPositive(response)) emotion++;
             if (this.response.isNegative(response)) emotion--;
@@ -96,10 +106,12 @@ public class ChatBotParser {
         }
     }
 
+    // print answer
     public void respond() {
         System.out.println(answer);
     }
 
+    // history gets printed
     private void printHistory() {
         System.out.println("\nHistory:");
         for (String str : history) {
@@ -107,10 +119,12 @@ public class ChatBotParser {
         }
     }
 
+    // determine if wanted to print history
     public void askForHistory() {
         int respMood = 0;
         System.out.println("Would you like to see your conversation history?");
         answer = ChatBotRunner.simplify(in.nextLine());
+        // test user input
         for (String s : answer.split("\\s+")) {
             if (response.isPositive(s)) respMood++;
             if (response.isNegative(s)) respMood--;

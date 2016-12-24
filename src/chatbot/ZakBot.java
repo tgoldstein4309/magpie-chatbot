@@ -27,18 +27,6 @@ public class ZakBot {
         }
     }
 
-/*
-    public void setPage(String url) {
-        if (!(url.contains("http://") || url.contains("https://"))) url = "https://" + url;
-        try {
-            d = Jsoup.connect(url).get();
-        } catch (IOException e) {
-            System.out.println("Website not loaded");
-            e.printStackTrace();
-        }
-    }
-*/
-
     public String google(String url) {
         String body = "";
         try {
